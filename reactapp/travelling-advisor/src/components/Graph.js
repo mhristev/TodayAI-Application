@@ -30,7 +30,7 @@ const Graph = ({ title, data }) => {
 
   // Custom tick formatter
   const formatTick = (tick) => {
-    return tick === 1 ? 'none' : tick === 2 ? 'light': tick === 3 ? 'medium' : 'heavy';
+    return tick === 1 ? 'No delay' : tick === 2 ? 'Up to 15 mins.': tick === 3 ? '15-30 mins.' : '\n30+ mins.';
   };
 
   const trafficValues = {
@@ -59,7 +59,7 @@ const Graph = ({ title, data }) => {
     <div className="graph">
       <h2>{title}</h2>
       <BarChart
-        width={600}
+        width={700}
         height={300}
         data={mappedData}
         margin={{

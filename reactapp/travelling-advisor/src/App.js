@@ -54,6 +54,7 @@ const App = () => {
     <div className="App">
          <Header setBoxmeerData={setBoxmeerData} setHertogenboschData={setHertogenboschData} />
       <div>
+
       {/* <button onClick={() => getPrediction({Hour: 12, RoadNumber: 5, Weekday: 2, DayofYear: 150, Year: 2020, DayofMonth: 30, HectometerDirectionNum: 1})}>
         Get Prediction
       </button> */}
