@@ -60,11 +60,19 @@ const App = () => {
       </button> */}
       {prediction && <p>Prediction: {prediction}</p>}
     </div>
-      <div className="graph-container">
-        <Graph title="Boxmeer" data={boxmeerData} dataKey1="morning" dataKey2="afternoon" />
-        <Graph title="'s-Hertogenbosch" data={hertogenboschData} dataKey1="morning" dataKey2="afternoon" />
+    <div className='section-graph'>
+      <div className='header-graph'>
+        <div className='title-graph'>Travel duration in minutes per weekday</div>
+        <p className='sub-title-graph'>Morning hours are between 7 and 9 AM. Afternoon hours are between 4 and 6 PM.</p>
+      </div>
+      <hr></hr>
+        <div className="graph-container">
+          <Graph title="Boxmeer" data={boxmeerData} dataKey1="morning" dataKey2="afternoon" />
+          <Graph title="'s-Hertogenbosch" data={hertogenboschData} dataKey1="morning" dataKey2="afternoon" />
+        </div>
       </div>
       <AdviceSummary boxmeer={bestDaysBoxmeer.join(' and ')} hertogenbosch={bestDayDenBosch} />
+
     </div>
   );
 };

@@ -1,7 +1,9 @@
 .graph {
     margin: 20px;
     text-align: center;
+    margin-right: 0px;
   }
+
   
 .custom-tooltip {
     background: white;
@@ -9,3 +11,5 @@
     padding: 5px;
     border-radius: 5px;
 }
+
+
