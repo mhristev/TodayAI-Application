@@ -9,9 +9,11 @@ const CustomTooltip = ({ active, payload }) => {
     };
 
     return (
-      <div className="custom-tooltip">
-        <p className="intro">{`Morning : ${formatValue(payload[0].value)}`}</p>
-        <p className="intro">{`Afternoon : ${formatValue(payload[1].value)}`}</p>
+      <div className='overflow-graph'>
+        <div className="custom-tooltip">
+          <p className="intro">{`Morning : ${formatValue(payload[0].value)}`}</p>
+          <p className="intro">{`Afternoon : ${formatValue(payload[1].value)}`}</p>
+        </div>
       </div>
     );
   }
@@ -30,7 +32,7 @@ const Graph = ({ title, data }) => {
 
   // Custom tick formatter
   const formatTick = (tick) => {
-    return tick === 1 ? 'No delay' : tick === 2 ? 'Up to 15 mins.': tick === 3 ? '15-30 mins.' : '\n30+ mins.';
+    return tick === 1 ? 'No delay' : tick === 2 ? 'Up to 15 min': tick === 3 ? '15-30 min' : '\n30+ min';
   };
 
   const trafficValues = {
