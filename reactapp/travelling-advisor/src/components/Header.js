@@ -1,17 +1,19 @@
 import React from 'react';
 import './Header.css';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function Header({ setBoxmeerData, setHertogenboschData }) {
-  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
   const trafficConditions = ["none", "light", "medium", "heavy"];
+  const [selectedButton, setSelectedButton] = useState('thisWeek');
 
   const transformPredictions = (predictions) => {
     return predictions.map(prediction => trafficConditions[prediction]);
   }
 
   const getPredictionThisWeek = () => {
+    setSelectedButton('thisWeek');
     axios.post('http://127.0.0.1:5000/predict/this_week')
       .then(response => {
         console.log(response.data);
@@ -63,6 +65,7 @@ function Header({ setBoxmeerData, setHertogenboschData }) {
   };
 
   const getPredictionNextWeek = () => {
+    setSelectedButton('nextWeek');
     axios.post('http://127.0.0.1:5000/predict/next_week')
       .then(response => {
         console.log(response.data);
@@ -122,8 +125,8 @@ function Header({ setBoxmeerData, setHertogenboschData }) {
       <h1>Theo's travelling advisor</h1>
       <div className="week-selector">
         <span>Week of the advice:</span>
-        <button onClick={getPredictionThisWeek}>This week</button>
-        <button onClick={getPredictionNextWeek}>Next week</button>
+        <button style={{ border: '1px solid black', backgroundColor: selectedButton === 'thisWeek' ? 'lightblue' : 'transparent'  }} onClick={getPredictionThisWeek}>This week</button>
+        <button style={{ border: '1px solid black', backgroundColor: selectedButton === 'nextWeek' ? 'lightblue' : 'transparent' }} onClick={getPredictionNextWeek}>Next week</button>
       </div>
     </div>
   );

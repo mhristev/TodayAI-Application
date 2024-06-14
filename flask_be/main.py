@@ -3,10 +3,11 @@ from joblib import load
 from flask_cors import CORS
 from pandas import DataFrame
 from datetime import datetime, timedelta
+import pickle
 
 app = Flask(__name__)
 CORS(app, origins="http://localhost:3000")
-model = load('random_forest_69.joblib')
+model = load('rf69.joblib')
 
 # 0 is for going to work, 1 is coming back home
 

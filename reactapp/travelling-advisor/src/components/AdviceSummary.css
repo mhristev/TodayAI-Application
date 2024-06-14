@@ -1,7 +1,8 @@
 .advice-summary {
-    text-align: center;
-    margin: 20px;
-    font-size: 1.2em;
+  text-align: center;
+  margin: 20px;
+  font-size: 1.2em;
+
   }
   .advice-summary p {
     margin-bottom: -5px;
@@ -24,4 +25,22 @@
   }
   .second-p-summary {
     margin-top: 10px;
+  }
+
+  .header-advice p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 500;
+  }
+  .first-p-summary {
+    margin-top: -5px;
+    font-weight: 550;
+    font-size: 20px;
+  }
+  .second-p-summary {
+    margin-top: 10px;
+    font-weight: 550;
+    font-size: 20px;
+
   }

@@ -30,6 +30,13 @@ padding-right: 15px;
     font-size: 16px;
   }
 
+  .week-selector span {
+    position: relative;
+    top: 0.1vh;
+    padding-right: 15px;
+    font-size: 22px;
+  }
+
 
   
   .week-selector button:hover {

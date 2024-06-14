@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import './Graph.css';
 
@@ -23,11 +23,10 @@ const CustomTooltip = ({ active, payload }) => {
 
 
 const Graph = ({ title, data }) => {
-
   const mappedData = data.map(item => ({
     ...item,
-    morning: item.morning === 'light' ? 2 : item.morning === 'medium' ? 3 : 4,
-    afternoon: item.afternoon === 'light' ? 2 : item.afternoon === 'medium' ? 3 : 4,
+    morning: item.morning === 'none' ? 1 : item.morning === 'light' ? 2 : item.morning === 'medium' ? 3 : 4,
+    afternoon: item.afternoon === 'none' ? 1 : item.afternoon === 'light' ? 2 : item.afternoon === 'medium' ? 3 : 4,
   }));
 
   // Custom tick formatter
@@ -36,12 +35,13 @@ const Graph = ({ title, data }) => {
   };
 
   const trafficValues = {
+    'none' : 0, // 'none' is not used in the data, but it is added here to make the code more readable  
     'light': 1,
     'medium': 2,
     'heavy': 3
   };
   
-  // Sort the data based on the morning and afternoon values
+  // Sort the data based on the 6AM and afternoon values
   const sortedData = mappedData.sort((a, b) => (trafficValues[a.morning] + trafficValues[a.afternoon]) - (trafficValues[b.morning] + trafficValues[b.afternoon]));
   
   // Get the best days for traveling
@@ -73,8 +73,8 @@ const Graph = ({ title, data }) => {
         <YAxis domain={[1, 4]} ticks={[1, 2, 3, 4]} tickFormatter={formatTick} />
         {/* <Tooltip content={<CustomTooltip />}/> */}
         <Legend />
-        <Bar dataKey="morning" fill="#D06A30" />
-        <Bar dataKey="afternoon" fill="#1B3454" />
+        <Bar dataKey="morning" fill="#D06A30" isAnimationActive={true} animationDuration={500}/>
+        <Bar dataKey="afternoon" fill="#1B3454" isAnimationActive={true} animationDuration={500}/>
       </BarChart>
     </div>
   );
